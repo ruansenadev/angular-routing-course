@@ -13,14 +13,14 @@ export class LessonDetailComponent implements OnInit {
 
   lesson$: Observable<LessonDetail>;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
 
     console.log("Created LessonDetailComponent...");
 
   }
 
   ngOnInit() {
-
+    this.lesson$ = this.route.data.pipe(map(data => data['lesson']))
   }
 
 
