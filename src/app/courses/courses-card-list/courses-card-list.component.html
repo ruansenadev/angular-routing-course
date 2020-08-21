@@ -15,9 +15,9 @@
 
     <mat-card-actions class="course-actions">
 
-        <button mat-button class="mat-raised-button mat-primary">
+        <a mat-button class="mat-raised-button mat-primary" [routerLink]="course.url">
             VIEW COURSE
-        </button>
+        </a>
 
         <button mat-button class="mat-raised-button mat-accent"
                 (click)="editCourse(course)">
