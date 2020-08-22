@@ -15,7 +15,7 @@
 
     <mat-card-actions class="course-actions">
 
-        <a mat-button class="mat-raised-button mat-primary" [routerLink]="course.url">
+        <a mat-button class="mat-raised-button mat-primary" [routerLink]="course.url" [queryParams]="{ coupon: 'BATATA20' }">
             VIEW COURSE
         </a>
 
