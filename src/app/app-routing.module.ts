@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'courses', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'about', component: AboutComponent },
   { path: 'courses', loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule) },
