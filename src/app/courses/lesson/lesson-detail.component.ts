@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {LessonDetail} from "../model/lesson-detail";
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
+import { LessonDetail } from "../model/lesson-detail";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: 'lesson',
@@ -20,23 +20,14 @@ export class LessonDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-
-      this.lesson$ = this.route.data.pipe(map(data => data["lesson"]));
-
+    this.lesson$ = this.route.data.pipe(map(data => data['lesson']))
   }
 
-    previous(lesson: LessonDetail) {
+  previous(seq: number): void {
+    this.router.navigate(['lessons', seq - 1], { relativeTo: this.route.parent })
+  }
+  next(seq: number): void {
+    this.router.navigate(['lessons', seq + 1], { relativeTo: this.route.parent })
+  }
 
-      this.router.navigate(['lessons', lesson.seqNo - 1],
-          {relativeTo: this.route.parent});
-
-    }
-
-
-    next(lesson: LessonDetail) {
-
-        this.router.navigate(['lessons', lesson.seqNo + 1],
-            {relativeTo: this.route.parent});
-
-    }
 }
