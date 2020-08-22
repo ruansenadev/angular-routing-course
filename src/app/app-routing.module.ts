@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   {
     path: 'courses',
-    loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule),
-    canLoad: [CoursesLoadGuard]
+    loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)
+    // canLoad: [CoursesLoadGuard]
   },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -20,7 +20,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-
+      preloadingStrategy: PreloadAllModules
     })
   ],
   exports: [RouterModule],
