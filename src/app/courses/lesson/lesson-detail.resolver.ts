@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { LessonDetail } from "../model/lesson-detail";
 import { CoursesService } from "../services/courses.service";
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class LessonDetailResolver implements Resolve<LessonDetail> {
   constructor(private coursesService: CoursesService) { }
   resolve(route: ActivatedRouteSnapshot): Observable<LessonDetail> {
