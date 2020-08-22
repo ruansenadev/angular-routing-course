@@ -24,7 +24,11 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadingStrategyModules
+      preloadingStrategy: PreloadingStrategyModules,
+      scrollPositionRestoration: 'enabled',
+      paramsInheritanceStrategy: 'always',
+      relativeLinkResolution: 'corrected',
+      malformedUriErrorHandler: (error: URIError, urlSerializer: UrlSerializer, url: string) => urlSerializer.parse("/404")
     })
   ],
   exports: [RouterModule],

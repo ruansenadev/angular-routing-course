@@ -8,7 +8,7 @@ import { CoursesService } from "../services/courses.service";
 export class LessonDetailResolver implements Resolve<LessonDetail> {
   constructor(private coursesService: CoursesService) { }
   resolve(route: ActivatedRouteSnapshot): Observable<LessonDetail> {
-    const courseUrl = route.parent.paramMap.get('url'),
+    const courseUrl = route.paramMap.get('url'),
       lessonSeq = route.paramMap.get('seq')
     return this.coursesService.loadLessonDetail(courseUrl, lessonSeq)
   }
