@@ -20,7 +20,6 @@ export class LessonDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.route.data)
     this.lesson$ = this.route.data.pipe(map(data => data['lesson']))
   }
 
